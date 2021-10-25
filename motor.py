@@ -9,12 +9,19 @@ for pin in ControlPin:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 0)
     
-seq = [ [1, 0, 0, 0],
-        [0, 1, 0, 0],
-        [0, 0, 1, 0],
-        [0, 0, 0, 1] ]
+seq_r = [ [1, 0, 0, 0],
+          [0, 1, 0, 0],
+          [0, 0, 1, 0],
+          [0, 0, 0, 1] ]
 
-for i in range(512):
+seq_l = [ [0, 0, 0, 1],
+          [0, 0, 1, 0],
+          [0, 1, 0, 0],
+          [1, 0, 0, 0] ]
+
+rotation = 512
+
+for i in range(rotation):
     for halfstep in range(4):
         for pin in range(4):
             GPIO.output(ControlPin[pin], seq[halfstep][pin])
