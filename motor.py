@@ -22,9 +22,9 @@ seq_l = [ [0, 0, 0, 1],
 rotation = 512
 
 for i in range(rotation):
-    for halfstep in range(4):
+    for step in range(4):
         for pin in range(4):
-            GPIO.output(ControlPin[pin], seq[halfstep][pin])
+            GPIO.output(ControlPin[pin], seq_r[step][pin])
             time.sleep(0.001)
             
 GPIO.cleanup()
