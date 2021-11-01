@@ -1,12 +1,14 @@
 from tkinter import *
-
-
+DEBUG = FALSE
 
 window = Tk()
-open = Button(window, text="Open")
-close = Button(window, text="Close")
-open.pack()
-close.pack()
+if DEBUG:
+    window.attributes("-fullscreen", True)
+frame1 = Frame(window, background = "red")
+frame1.pack
+
+
+
 window.mainloop()
 
 
