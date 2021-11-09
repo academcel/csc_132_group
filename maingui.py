@@ -7,6 +7,11 @@ from tkinter import *
 from tkinter.ttk import *
 #from motor import motorL, motorR
 
+def quit():
+    global master
+    master.quit()
+
+
 # creates a Tk() object
 def mainScreen():
     global master
@@ -15,6 +20,7 @@ def mainScreen():
     # sets the geometry of main
     # root window
     master.geometry("300x300")
+    master.configure(bg="#9cb9e4")
     label = Label(master, text="This is the main window")
     label.pack(pady=10)
 
@@ -23,9 +29,11 @@ def mainScreen():
     bot1 = Button(master, text="Click to open Light controls.", command=windowTwo)
     bot2 = Button(master, text="Click to open Motor controls.", command=windowThree)
     bot3 = Button(master, text="Click to open watering system controls.", command=windowFour)
+    #bot4 = Button(master, test="Click to close program", command=quit)
     bot1.pack(pady=3)
     bot2.pack(pady=2)
     bot3.pack(pady=1)
+    #bot4.pack(pady=-4)
 
     # mainloop, runs infinitely
     mainloop()
@@ -44,6 +52,7 @@ def windowTwo():
 
     # sets the geometry of toplevel
     window2.geometry("300x300")
+    window2.configure(bg="cyan")
 
     # A Label widget to show in toplevel
     Label(window2, text="Light switch controls.")
@@ -57,6 +66,7 @@ def windowThree():
     window3 = Toplevel(master)
     window3.title("Module 2")
     window3.geometry("300x300")
+    window3.configure(bg="red")
     note = Label(window3, text="The motor can open or close the curtain.", )
     #bot1 = Button(window3, text="Open the curtain", command=motorR)
     #bot2 = Button(window3, text="Close the curtain", command=motorL)
@@ -70,7 +80,8 @@ def windowFour():
     master.withdraw()
     window4 = Toplevel(master)
     window4.title("Module 3")
-    window4.geometry("400x400")
+    window4.geometry("300x300")
+    window4.configure(bg="yellow")
     note = Label(window4, text="Control when plant is watered, and if the plant gets water.")
     bot3 = Button(window4, text="Go back to the main menu.", command=inbetween)
     note.pack(pady=30)
